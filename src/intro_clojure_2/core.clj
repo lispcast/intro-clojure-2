@@ -1,3 +1,6 @@
+(ns intro-clojure-2.core
+  [:use bakery.core])
+
 (defn add-egg []
   (grab :egg)
   (squeeze)
@@ -145,3 +148,7 @@
   (pour-into-pan)
   (bake-pan 30)
   (cool-pan))
+
+(defn -main []
+  (bake-cake)
+  (bake-cookies))
