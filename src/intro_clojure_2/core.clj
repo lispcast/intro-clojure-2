@@ -170,6 +170,11 @@
 (defn squeezed? [ingredient]
   (contains? squeezed-ingredients ingredient))
 
+(def simple-ingredients #{:butter})
+
+(defn simple? [ingredient]
+  (contains? simple-ingredients ingredient))
+
 (defn -main []
   (bake-cake)
   (bake-cookies))
