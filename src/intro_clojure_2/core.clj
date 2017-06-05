@@ -202,7 +202,22 @@
        (dotimes [i amount]
          (unload ingredient)))
      (error "This function only works on ingredients that are stored in the fridge. You asked me to fetch" ingredient))))
+
+(defn fetch-ingredient
+  ([ingredient]
+   (fetch-ingredient ingredient 1))
+  ([ingredient amount]
+   (cond
+     (from-fridge? ingredient)
+     (fetch-from-fridge ingredient amount)
+     (from-pantry? ingredient)
+     (fetch-from-pantry ingredient amount)
+     :else
+     (error "This function only works on ingredients found in either the pantry or the fridge.  You asked me to fetch" ingredient))))
          
 (defn -main []
   (bake-cake)
-  (bake-cookies))
+  (bake-cookies)
+  (fetch-from-pantry :flour 45)
+  (fetch-from-fridge :milk 10)
+  (status))
