@@ -165,6 +165,11 @@
 (defn scooped? [ingredient]
   (contains? scooped-ingredients ingredient))
 
+(def squeezed-ingredients #{:egg})
+
+(defn squeezed? [ingredient]
+  (contains? squeezed-ingredients ingredient))
+
 (defn -main []
   (bake-cake)
   (bake-cookies))
