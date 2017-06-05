@@ -160,6 +160,11 @@
 (defn from-pantry? [ingredient]
   (contains? pantry-ingredients ingredient))
 
+(def scooped-ingredients #{:flour :sugar :milk})
+
+(defn scooped? [ingredient]
+  (contains? scooped-ingredients ingredient))
+
 (defn -main []
   (bake-cake)
   (bake-cookies))
