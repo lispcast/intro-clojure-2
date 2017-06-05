@@ -150,6 +150,11 @@
   (bake-pan 30)
   (cool-pan))
 
+(def fridge-ingredients #{:milk :egg :butter})
+
+(defn from-fridge? [ingredient]
+  (contains? fridge-ingredients ingredient))
+
 (def pantry-ingredients #{:flour :sugar})
 
 (defn from-pantry? [ingredient]
