@@ -175,6 +175,20 @@
 (defn simple? [ingredient]
   (contains? simple-ingredients ingredient))
 
+(defn fetch-from-pantry
+  ([ingredient]
+   (fetch-from-pantry ingredient 1))
+  ([ingredient amount]
+   (if (from-pantry? ingredient)
+     (do
+       (go-to :pantry)
+       (dotimes [i amount]
+         (load-up ingredient))
+       (go-to :prep-area)
+       (dotimes [i amount]
+         (unload ingredient)))
+     (error "This function only works on ingredients that are stored in the pantry. You asked me to fetch" ingredient))))
+         
 (defn -main []
   (bake-cake)
   (bake-cookies))
