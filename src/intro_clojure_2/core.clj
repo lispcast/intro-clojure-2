@@ -150,6 +150,11 @@
   (bake-pan 30)
   (cool-pan))
 
+(def pantry-ingredients #{:flour :sugar})
+
+(defn from-pantry? [ingredient]
+  (contains? pantry-ingredients ingredient))
+
 (defn -main []
   (bake-cake)
   (bake-cookies))
